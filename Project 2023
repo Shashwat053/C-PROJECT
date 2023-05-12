@@ -1,0 +1,125 @@
+//Bank management system
+
+#include <stdio.h>
+
+int main()
+
+{
+
+printf("Welcome to Our Bank :)\n");
+
+int n;
+
+printf("Enter the number of accounts you want to access: \n");
+
+scanf("%d",&n);
+
+int acc[n],bal[n];
+
+char name[50];
+
+int ch;
+
+int i;
+
+for(i=1;i<=n;i++)
+
+{
+
+printf("Enter your %d th Account No. : ",i);
+
+scanf("%d",&acc[i-1]);
+
+printf("Enter %d th Account Holder's name : ",i);
+
+scanf("%s",name);
+
+printf("Enter %d th account balance : ",i);
+
+scanf("%d",&bal[i-1]);
+
+printf("What do you want to know/perform : \n");
+
+printf(" 1. View Balance\n 2. Deposit Money\n 3. Withdraw Money \n 4. Quit\n");
+
+scanf("%d",&ch);
+
+int dp,wd;
+
+switch(ch)
+
+{
+
+case 1 : 
+
+printf("Your account balance is : %d\n",bal[i-1]);
+
+break;
+
+case 2 : 
+
+printf("Enter the amount you want to deposit : \n");
+
+scanf("%d",&dp);
+
+bal[i-1]+=dp;
+
+break;
+
+case 3 : 
+
+printf("Enter the amount you want to withdraw : \n");
+
+scanf("%d",&wd);
+
+if(bal[i-1]<wd)
+
+{
+
+printf("Sorry! You do not have enough balance.\n");
+
+}
+
+else
+
+{
+
+printf("%d withdrawn successfully from your account.\n",wd);
+
+bal[i-1] =bal[i-1] - wd;
+
+}
+
+break;
+
+case 4 : 
+
+printf("Quitting...\n");
+
+break;
+
+default:
+
+printf("Wrong choice \n");
+
+break;
+
+}
+
+}
+
+for(i=0;i<n;i++)
+
+{
+
+printf("Account no.\tBalance\n");
+
+printf("%d\t\t\t%d\n",acc[i],bal[i]);
+
+}
+
+printf("Thank you!");
+
+return 0;
+
+}
